@@ -1,0 +1,33 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+<h2>Evento</h2>
+
+<form method="post" action="{% url 'submit_evento' %}">
+    {% csrf_token %}
+
+    <div style="display: flex; flex-direction: column; margin-bottom: 15px; max-width: 300px;">
+        <label for="titulo">Titulo</label>
+        <input type="text" name="titulo" style="width: 100%; max-width: 180px;">
+    </div>
+
+    <div style='display: flex; flex-direction: column; margin-bottom: 15px;'>
+        <label>Data do Evento:</label>
+        <input type="datetime-local" name="data_evento" style="width: 100%; max-width: 180px;"> 
+    </div>
+
+    <div style='display: flex; flex-direction: column; margin-bottom: 15px;'>
+        <label for="descricao">Descrição</label>
+        <textarea name="descricao" id="" style="width: 100%; max-width: 180px;" rows="4" cols="30"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">Salvar</button>
+
+        <a href="/">
+            <button type="button">Cancelar</button>
+        </a>
+    </div>
+</form>
+{% endblock %}
